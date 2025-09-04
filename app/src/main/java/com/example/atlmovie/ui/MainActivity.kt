@@ -19,18 +19,5 @@ class MainActivity : AppCompatActivity() {
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
 //            insets
 //        }
-
-        val prefs = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-        val isFirstLaunch = prefs.getBoolean("first_launch", true)
-
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
-        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
-
-        navGraph.setStartDestination(
-            if (isFirstLaunch) R.id.splashScreenFragment else R.id.letsYouInFragment
-        )
-
-        navController.graph = navGraph
     }
 }

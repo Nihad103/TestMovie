@@ -16,7 +16,6 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(
     private val viewModel by viewModels<SignUpViewModel>()
 
 
-
     override fun onViewCreateFinish() {
         observes()
         binding.ivBack.setOnClickListener {
@@ -31,7 +30,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.register(email, password)
-                
+
             } else {
                 Toast.makeText(requireContext(), "Bos qoymaq olmaz!", Toast.LENGTH_SHORT).show()
             }
@@ -41,24 +40,25 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(
     private fun observes() {
         viewModel.isSuccess.observe(viewLifecycleOwner) {
             if (it) {
-                saveLoginData()
+                // Giriş məlumatlarını yaddaşa yaz
+                val prefs = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+                if (binding.cbRememberMe.isChecked) {
+                    prefs.edit().putBoolean("saved_login", true).apply()
+                }
+
+                val navOptions = NavOptions.Builder()
+                    .setPopUpTo(R.id.signUpFragment, true)
+                    .build()
+
                 findNavController().navigate(
                     R.id.action_signUpFragment_to_homeFragment,
                     null,
-                    NavOptions.Builder()
-                        .setPopUpTo(findNavController().graph.startDestinationId, true)
-                        .build()
+                    navOptions
                 )
             }
+            viewModel.isError.observe(viewLifecycleOwner) {
+                Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+            }
         }
-        viewModel.isError.observe(viewLifecycleOwner) {
-            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun saveLoginData() {
-        val sharedPref = requireContext().getSharedPreferences("save_login", Context.MODE_PRIVATE)
-
-        sharedPref.edit().putBoolean("saved_data", true).apply()
     }
 }

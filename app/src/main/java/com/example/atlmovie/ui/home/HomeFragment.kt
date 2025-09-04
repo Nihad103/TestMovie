@@ -1,5 +1,8 @@
 package com.example.atlmovie.ui.home
 
+import android.app.AlertDialog
+import android.content.Context
+import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
@@ -86,4 +89,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         val args = bundleOf("detail" to movieId)
         findNavController().navigate(R.id.action_global_detailFragment, args)
     }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Appden Cixilsin?")
+                    .setPositiveButton("Bəli") { _, _ ->
+                        requireActivity().finishAffinity()
+                    }
+                    .setNegativeButton("Xeyr") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
 }

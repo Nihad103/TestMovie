@@ -2,6 +2,7 @@ package com.example.atlmovie.ui.onboarding
 
 import android.content.Context
 import android.view.View
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.atlmovie.R

@@ -33,16 +33,19 @@ class LetsYouInFragment : BaseFragment<FragmentLetsYouInBinding>(
     }
 
     private fun getLoginData() {
-        val sharedPref = requireContext().getSharedPreferences("save_login", Context.MODE_PRIVATE)
+        val sharedPref = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+        val isAuth = sharedPref.getBoolean("saved_login", false)
 
-        val isAuth = sharedPref.getBoolean("saved_data", false)
         if (isAuth) {
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.letsYouInFragment, true)
+                .build()
             findNavController().navigate(
                 R.id.action_letsYouInFragment_to_homeFragment,
                 null,
-                NavOptions.Builder()
-                    .setPopUpTo(findNavController().graph.startDestinationId, true)
-                    .build()
-            )        }
+                navOptions
+            )
+        }
     }
+
 }

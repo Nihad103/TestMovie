@@ -38,13 +38,19 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     private fun observes() {
         viewModel.isSuccess.observe(viewLifecycleOwner) {
             if (it) {
-                saveLoginData()
+                val prefs = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+                if (binding.cbRememberMe.isChecked) {
+                    prefs.edit().putBoolean("saved_login", true).apply()
+                }
+
+                val navOptions = NavOptions.Builder()
+                    .setPopUpTo(R.id.loginFragment, true)
+                    .build()
+
                 findNavController().navigate(
                     R.id.action_loginFragment_to_homeFragment,
                     null,
-                    NavOptions.Builder()
-                        .setPopUpTo(findNavController().graph.startDestinationId, true)
-                        .build()
+                    navOptions
                 )
             }
         }
@@ -52,11 +58,4 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
         }
     }
-
-    private fun saveLoginData() {
-        val sharedPref = requireContext().getSharedPreferences("save_login", Context.MODE_PRIVATE)
-
-        sharedPref.edit().putBoolean("saved_data", true).apply()
-    }
-
 }
