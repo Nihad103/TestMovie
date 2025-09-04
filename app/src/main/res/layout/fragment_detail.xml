@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="detail"
+            type="com.example.atlmovie.model.detail.MovaDetail" />
+    </data>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.detail.DetailFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/black"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivTitle"
+                load_url="@{detail.posterPath}"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp"
+                android:text="@{detail.title}"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnBookmark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivTitle" />
+
+            <ToggleButton
+                android:id="@+id/btnBookmark"
+                android:layout_width="20dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/bookmark"
+                android:textOff=""
+                android:textOn=""
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintEnd_toStartOf="@+id/ivSend"
+                app:layout_constraintTop_toBottomOf="@+id/ivTitle" />
+
+            <ImageView
+                android:id="@+id/ivSend"
+                android:layout_width="20dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/send"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBookmark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btnBookmark" />
+
+            <ImageView
+                android:id="@+id/btnStar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/star"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+            <TextView
+                android:id="@+id/tvRatingDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{String.valueOf(detail.voteAverage)}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnStar"
+                app:layout_constraintStart_toEndOf="@+id/btnStar"
+                app:layout_constraintTop_toTopOf="@+id/btnStar" />
+
+            <ImageView
+                android:id="@+id/ivArrowRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/arrowright"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRatingDetail"
+                app:layout_constraintStart_toEndOf="@+id/tvRatingDetail"
+                app:layout_constraintTop_toTopOf="@+id/tvRatingDetail" />
+
+            <TextView
+                android:id="@+id/tvDetailYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@{detail.releaseDate}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/ivArrowRight"
+                app:layout_constraintStart_toEndOf="@+id/ivArrowRight"
+                app:layout_constraintTop_toTopOf="@+id/ivArrowRight" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLanguage"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:backgroundTint="@android:color/transparent"
+                android:minWidth="0dp"
+                android:paddingHorizontal="10dp"
+                android:text="@{detail.originalLanguage}"
+                android:textColor="@color/red_21"
+                app:cornerRadius="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDetailYear"
+                app:layout_constraintStart_toEndOf="@+id/tvDetailYear"
+                app:layout_constraintTop_toTopOf="@+id/tvDetailYear"
+                app:strokeColor="@color/red_21"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCountry"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@android:color/transparent"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:minWidth="0dp"
+                android:paddingHorizontal="10dp"
+                android:text="@{String.valueOf(detail.originCountry)}"
+                android:textColor="@color/red_21"
+                app:cornerRadius="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnLanguage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnLanguage"
+                app:layout_constraintTop_toTopOf="@+id/btnLanguage"
+                app:strokeColor="@color/red_21"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPlay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/red_21"
+                android:text="Play"
+                app:icon="@drawable/play"
+                android:paddingStart="60dp"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toStartOf="@+id/btnDownload"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDownload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@android:color/transparent"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="8dp"
+                android:text="Download"
+                android:textColor="@color/red_21"
+                android:textSize="16sp"
+                app:cornerRadius="100dp"
+                app:icon="@drawable/download"
+                app:iconGravity="textStart"
+                app:iconTint="@color/red_21"
+                app:layout_constraintBottom_toBottomOf="@+id/btnPlay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnPlay"
+                app:layout_constraintTop_toTopOf="@+id/btnPlay"
+                app:strokeColor="@color/red_21"
+                app:strokeWidth="1dp" />
+
+            <TextView
+                android:id="@+id/tvFilmType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:text="@{detail.overview}"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPlay" />
+
+            <TextView
+                android:id="@+id/tvFilmOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFilmType" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPeople"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_people"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFilmOverview" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvPeople"
+                app:tabIndicatorColor="@color/red_21"
+                app:tabSelectedTextColor="@color/red_21"
+                app:tabTextColor="@color/grey_3f"/>
+
+<!--                <com.google.android.material.tabs.TabItem-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Trailers" />-->
+
+<!--                <com.google.android.material.tabs.TabItem-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Comments" />-->
+
+<!--            </com.google.android.material.tabs.TabLayout>-->
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/tabviewPager2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="42dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivTitle"
+                app:srcCompat="@drawable/back" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

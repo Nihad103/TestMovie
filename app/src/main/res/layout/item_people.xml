@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="20dp"
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/people"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Shawn Levy"
+        android:id="@+id/tvPeopleName"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:textAlignment="textStart"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivPeople"
+        app:layout_constraintTop_toTopOf="@id/ivPeople" />
+
+    <TextView
+        android:id="@+id/tvWork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Director"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textAlignment="textStart"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintStart_toEndOf="@id/ivPeople"
+        app:layout_constraintTop_toBottomOf="@id/tvPeopleName"
+        app:layout_constraintBottom_toBottomOf="@id/ivPeople"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

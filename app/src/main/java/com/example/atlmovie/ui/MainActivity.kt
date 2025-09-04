@@ -1,0 +1,36 @@
+package com.example.atlmovie.ui
+
+import android.content.Context
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
+import com.example.atlmovie.R
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
+
+        val prefs = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+        val isFirstLaunch = prefs.getBoolean("first_launch", true)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+
+        navGraph.setStartDestination(
+            if (isFirstLaunch) R.id.splashScreenFragment else R.id.letsYouInFragment
+        )
+
+        navController.graph = navGraph
+    }
+}

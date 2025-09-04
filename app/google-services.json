@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "749747893672",
+    "project_id": "test-movie-382cb",
+    "storage_bucket": "test-movie-382cb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749747893672:android:6b3a3c4d6e29290b99d99d",
+        "android_client_info": {
+          "package_name": "com.example.atlmovie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAioWom4enI0jpaKjHwKL6o2x7dMO9_1bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
