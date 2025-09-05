@@ -41,13 +41,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
 
         binding.btnSeeAllTop10.setOnClickListener {
             val action = HomeFragmentDirections
-                .actionHomeFragmentToSeeAllFragment(SeeAllType.POPULAR.name)
+                .actionHomeFragmentToSeeAllFragment(SeeAllType.TOP_RATED.name)
             findNavController().navigate(action)
         }
 
         binding.btnSeeAllPopular.setOnClickListener {
             val action = HomeFragmentDirections
-                .actionHomeFragmentToSeeAllFragment(SeeAllType.TOP_RATED.name)
+                .actionHomeFragmentToSeeAllFragment(SeeAllType.POPULAR.name)
             findNavController().navigate(action)
         }
 

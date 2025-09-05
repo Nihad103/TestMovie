@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.atlmovie.model.home.MovaListsHome
 import com.example.atlmovie.model.home.MovaResult
 import com.example.atlmovie.service.MovieRepository
-import com.example.atlmovie.service.RetrofitClient
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

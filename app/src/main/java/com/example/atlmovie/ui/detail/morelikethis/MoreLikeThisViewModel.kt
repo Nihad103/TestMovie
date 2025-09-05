@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.atlmovie.model.home.MovaListsHome
 import com.example.atlmovie.model.home.MovaResult
 import com.example.atlmovie.service.MovieRepository
-import com.example.atlmovie.service.RetrofitClient
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class MoreLikeThisViewModel(
     private val movieRepository: MovieRepository
+
 ) : ViewModel() {
 
     private val _popularMovies = MutableLiveData<List<MovaResult>>()
@@ -21,7 +21,6 @@ class MoreLikeThisViewModel(
     private var _isError = MutableLiveData<String>()
     val isError : LiveData<String> = _isError
 
-    private val api = RetrofitClient().api
 
     fun getPopularData() = fetchMovies(
         call = { movieRepository.getPopular() },

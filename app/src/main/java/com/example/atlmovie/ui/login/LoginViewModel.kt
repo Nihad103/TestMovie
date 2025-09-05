@@ -8,15 +8,15 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(
+    private val firebaseAuth: FirebaseAuth
+) : ViewModel() {
 
     private var _isSuccess = MutableLiveData<Boolean>()
     val isSuccess : LiveData<Boolean> = _isSuccess
 
     private var _isError = MutableLiveData<String>()
     val isError : LiveData<String> = _isError
-
-    private val firebaseAuth = FirebaseAuth.getInstance()
 
     fun login(email:String, password:String) {
         viewModelScope.launch {
