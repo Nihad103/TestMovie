@@ -29,6 +29,9 @@ class SeeAllFragment : BaseFragment<FragmentSeeAllBinding>(
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
         }
+        binding.imgSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_seeAllFragment_to_exploreFragment)
+        }
 
         when (args.listType) {
             SeeAllType.POPULAR.name -> binding.tvTitle.text = "Popular"
@@ -40,5 +43,6 @@ class SeeAllFragment : BaseFragment<FragmentSeeAllBinding>(
 
     override fun onMovieClick(movieId: Int) {
         val args = bundleOf("detail" to movieId)
-        findNavController().navigate(R.id.action_global_detailFragment, args)}
+        findNavController().navigate(R.id.action_global_detailFragment, args)
     }
+}

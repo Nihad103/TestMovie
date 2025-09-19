@@ -1,27 +1,19 @@
 package com.example.atlmovie.ui.detail
 
 import android.util.Log
-import androidx.fragment.app.viewModels
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.atlmovie.adapter.PeopleAdapter
 import com.example.atlmovie.adapter.pager.DetailPagerAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentDetailBinding
-import com.example.atlmovie.service.MovieRepository
-import com.example.atlmovie.ui.home.HomeViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>(
     FragmentDetailBinding::inflate
 ) {
-
-    val animalsArray = arrayOf(
-        "Cat",
-        "Dog",
-        "Bird"
-    )
 
     private val viewModel: DetailViewModel by viewModel()
     private val args: DetailFragmentArgs by navArgs()
@@ -41,19 +33,17 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(
         viewModel.movieDetail.observe(viewLifecycleOwner) {
             binding.detail = it
         }
-        viewModel.error.observe(viewLifecycleOwner) { error ->
-            Log.e("DetailFragment", error)
+        viewModel.error.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun tabLayoutAndPager() {
-        // Adapteri viewPager-ə təyin et
         val viewPager = binding.tabviewPager2
         val tabLayout = binding.tabLayout
-        val adapter = DetailPagerAdapter(childFragmentManager, lifecycle)
+        val adapter = DetailPagerAdapter(childFragmentManager, lifecycle, args.detail)
         viewPager.adapter = adapter
 
-        // TabLayout ilə ViewPager-i birləşdir
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> "Trailers"
@@ -62,6 +52,4 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(
             }
         }.attach()
     }
-
-
 }

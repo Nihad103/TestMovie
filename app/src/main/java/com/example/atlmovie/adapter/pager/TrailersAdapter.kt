@@ -3,44 +3,40 @@ package com.example.atlmovie.adapter.pager
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.atlmovie.adapter.OnMovieClickListener
+import com.example.atlmovie.adapter.trailerclickinterface.OnTrailerClickListener
 import com.example.atlmovie.databinding.ItemTrailersBinding
-import com.example.atlmovie.model.detail.MovaDetail
-import com.example.atlmovie.model.home.MovaResult
+import com.example.atlmovie.model.openyoutube.Result
 
 class TrailersAdapter(
-    private val listener: OnMovieClickListener
-) : RecyclerView.Adapter<TrailersAdapter.TrailersViewHolder>() {
+    private val listener: OnTrailerClickListener,
+    private var trailers: List<Result> = emptyList()
+) : RecyclerView.Adapter<TrailersAdapter.TrailerViewHolder>() {
 
-    private val itemsPopular = arrayListOf<MovaResult>()
+    fun updateList(newList: List<Result>) {
+        trailers = newList
+        notifyDataSetChanged()
+    }
 
-    inner class TrailersViewHolder(private val itemTrailersBinding: ItemTrailersBinding) : RecyclerView.ViewHolder(itemTrailersBinding.root) {
-        fun bind(item: MovaResult) {
-            itemTrailersBinding.mova = item
-            itemTrailersBinding.root.setOnClickListener {
-                listener.onMovieClick(item.id)
-            }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrailerViewHolder {
+        val binding = ItemTrailersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return TrailerViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: TrailerViewHolder, position: Int) {
+        val trailer = trailers[position]
+        holder.bind(trailer)
+
+        holder.binding.root.setOnClickListener {
+            listener.onTrailerClick(trailer.key)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrailersViewHolder {
-        val view = ItemTrailersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return TrailersViewHolder(view)
-    }
+    override fun getItemCount(): Int = trailers.size
 
-    override fun getItemCount(): Int {
-        return itemsPopular.size
-    }
-
-    override fun onBindViewHolder(holder: TrailersViewHolder, position: Int) {
-        val itemPopular = itemsPopular[position]
-
-        holder.bind(itemPopular)
-    }
-
-    fun updateList(newList: ArrayList<MovaResult>) {
-        itemsPopular.clear()
-        itemsPopular.addAll(newList)
-        notifyDataSetChanged()
+    inner class TrailerViewHolder(val binding: ItemTrailersBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(trailer: Result) {
+            binding.trailer = trailer
+            binding.executePendingBindings()
+        }
     }
 }

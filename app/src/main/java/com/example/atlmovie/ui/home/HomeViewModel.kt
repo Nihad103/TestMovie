@@ -14,6 +14,9 @@ class HomeViewModel(
     private val movieRepository: MovieRepository
 ) : ViewModel() {
 
+    private val _firstPopularMovie = MutableLiveData<MovaResult?>()
+    val firstPopularMovie: LiveData<MovaResult?> = _firstPopularMovie
+
     private val _popularMovies = MutableLiveData<List<MovaResult>>()
     val popularMovies: LiveData<List<MovaResult>> = _popularMovies
 
@@ -32,7 +35,9 @@ class HomeViewModel(
     fun getPopularData() = fetchMovies(
         call = { movieRepository.getPopular() },
         target = _popularMovies
-    )
+    ) {
+        _firstPopularMovie.value = it.firstOrNull()
+    }
 
     fun getTopRatedData() = fetchMovies(
         call = { movieRepository.getTopRated() },
@@ -51,13 +56,16 @@ class HomeViewModel(
 
     private fun fetchMovies(
         call: suspend () -> Response<MovaListsHome>,
-        target: MutableLiveData<List<MovaResult>>
+        target: MutableLiveData<List<MovaResult>>,
+        onSuccess: (List<MovaResult>) -> Unit = {}
     ) {
         viewModelScope.launch {
             try {
                 val response = call()
                 if (response.isSuccessful) {
-                    target.value = response.body()?.movaResults ?: emptyList()
+                    val list = response.body()?.movaResults ?: emptyList()
+                    target.value = list
+                    onSuccess(list)
                 } else {
                     _isError.postValue("Error code: ${response.code()}")
                 }

@@ -84,4 +84,8 @@ dependencies {
 
     // Dependency Injection Koin
     implementation ("io.insert-koin:koin-android:3.4.2")
+
+    // Material Design
+    implementation ("com.google.android.material:material:1.13.0")
+
 }

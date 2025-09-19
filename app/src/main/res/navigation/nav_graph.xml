@@ -86,6 +86,12 @@
         <action
             android:id="@+id/action_homeFragment_to_seeAllFragment"
             app:destination="@id/seeAllFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_exploreFragment"
+            app:destination="@id/exploreFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -103,7 +109,11 @@
         android:id="@+id/trailersFragment"
         android:name="com.example.atlmovie.ui.detail.trailers.TrailersFragment"
         android:label="fragment_trailers"
-        tools:layout="@layout/fragment_trailers" />
+        tools:layout="@layout/fragment_trailers">
+        <argument
+            android:name="detail"
+            app:argType="integer" />
+    </fragment>
     <action
         android:id="@+id/action_global_detailFragment"
         app:destination="@id/detailFragment" />
@@ -114,5 +124,27 @@
         <argument
             android:name="listType"
             app:argType="string" />
+        <action
+            android:id="@+id/action_seeAllFragment_to_exploreFragment"
+            app:destination="@id/exploreFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.atlmovie.ui.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.atlmovie.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/myListFragment"
+        android:name="com.example.atlmovie.ui.mylist.MyListFragment"
+        android:label="fragment_my_list"
+        tools:layout="@layout/fragment_my_list" />
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.atlmovie.ui.explore.ExploreFragment"
+        android:label="ExploreFragment" />
 </navigation>

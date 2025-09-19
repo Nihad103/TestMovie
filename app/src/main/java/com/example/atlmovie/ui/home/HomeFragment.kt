@@ -2,6 +2,7 @@ package com.example.atlmovie.ui.home
 
 import android.app.AlertDialog
 import android.content.Context
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -62,11 +63,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
                 .actionHomeFragmentToSeeAllFragment(SeeAllType.UPCOMING.name)
             findNavController().navigate(action)
         }
+        binding.imgNotifications.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_notificationsFragment)
+        }
+        binding.imgSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_exploreFragment)
+        }
     }
 
     private fun observes() {
         viewModel.popularMovies.observe(viewLifecycleOwner) {
             popularAdapter.updateList(ArrayList(it))
+
+            if (it.isNotEmpty()) {
+                binding.film = it[0]
+            }
         }
 
         viewModel.topRatedMovies.observe(viewLifecycleOwner) {
@@ -82,6 +93,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         }
         viewModel.popularMovies.observe(viewLifecycleOwner) {
             popularAdapter.updateList(ArrayList(it))
+        }
+        viewModel.isError.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+
         }
     }
 
@@ -107,5 +122,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
-
 }

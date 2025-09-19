@@ -2,6 +2,8 @@ package com.example.atlmovie.service
 
 import com.example.atlmovie.model.detail.MovaDetail
 import com.example.atlmovie.model.home.MovaListsHome
+import com.example.atlmovie.model.openyoutube.MovaVideos
+import com.example.atlmovie.model.search.SearchModel
 import com.example.atlmovie.utils.Constants.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
@@ -17,25 +19,25 @@ interface ApiServices {
     suspend fun getPopular(
         @Query("api_key")
         apiKey: String = API_KEY
-    ) : Response<MovaListsHome>
+    ): Response<MovaListsHome>
 
     @GET("movie/popular")
     suspend fun getTopRated(
         @Query("api_key")
         apiKey: String = API_KEY
-    ) : Response<MovaListsHome>
+    ): Response<MovaListsHome>
 
     @GET("movie/popular")
     suspend fun getUpcoming(
         @Query("api_key")
         apiKey: String = API_KEY
-    ) : Response<MovaListsHome>
+    ): Response<MovaListsHome>
 
     @GET("movie/popular")
     suspend fun getNewReleases(
         @Query("api_key")
         apiKey: String = API_KEY
-    ) : Response<MovaListsHome>
+    ): Response<MovaListsHome>
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetail(
@@ -43,6 +45,21 @@ interface ApiServices {
         movieId: Int,
         @Query("api_key")
         apiKey: String = API_KEY
-    ) : Response<MovaDetail>
+    ): Response<MovaDetail>
 
+    @GET("movie/{movie_id}/videos")
+    suspend fun getMovieVideos(
+        @Path("movie_id")
+        movieId: Int,
+        @Query("api_key")
+        apiKey: String = API_KEY
+    ): Response<MovaVideos>
+
+    @GET("search/movie")
+    suspend fun getSearchMovies(
+        @Query("query")
+        query: String,
+        @Query("api_key")
+        apiKey: String = API_KEY
+    ): Response<SearchModel>
 }

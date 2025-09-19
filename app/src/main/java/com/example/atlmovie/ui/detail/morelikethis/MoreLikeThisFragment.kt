@@ -1,5 +1,6 @@
 package com.example.atlmovie.ui.detail.morelikethis
 
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
@@ -29,11 +30,13 @@ class MoreLikeThisFragment : BaseFragment<FragmentMoreLikeThisBinding>(
         viewModel.popularMovies.observe(viewLifecycleOwner) {
             moreLikeThisAdapter.updateList(ArrayList(it))
         }
+        viewModel.isError.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onMovieClick(movieId: Int) {
         val args = bundleOf("detail" to movieId)
         findNavController().navigate(R.id.action_global_detailFragment, args)
     }
-
 }

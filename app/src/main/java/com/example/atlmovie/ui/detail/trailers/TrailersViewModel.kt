@@ -1,11 +1,12 @@
 package com.example.atlmovie.ui.detail.trailers
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.atlmovie.model.home.MovaListsHome
-import com.example.atlmovie.model.home.MovaResult
+import com.example.atlmovie.model.openyoutube.MovaVideos
+import com.example.atlmovie.model.openyoutube.Result
 import com.example.atlmovie.service.MovieRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -14,31 +15,24 @@ class TrailersViewModel(
     private val movieRepository: MovieRepository
 ) : ViewModel() {
 
-    private val _popularMovies = MutableLiveData<List<MovaResult>>()
-    val popularMovies: LiveData<List<MovaResult>> = _popularMovies
+    private val _trailers = MutableLiveData<List<Result>>()
+    val trailers: LiveData<List<Result>> = _trailers
 
-    private var _isError = MutableLiveData<String>()
-    val isError : LiveData<String> = _isError
+    private val _isError = MutableLiveData<String>()
+    val isError: LiveData<String> = _isError
 
-    fun getPopularData() = fetchMovies(
-        call = { movieRepository.getPopular() },
-        target = _popularMovies
-    )
-
-    private fun fetchMovies(
-        call: suspend () -> Response<MovaListsHome>,
-        target: MutableLiveData<List<MovaResult>>
-    ) {
+    fun fetchTrailers(movieId: Int) {
         viewModelScope.launch {
             try {
-                val response = call()
+                val response = movieRepository.getMovieVideos(movieId)
+                Log.d("TrailersFragment", "Trailers response: ${response.body()?.results}")
                 if (response.isSuccessful) {
-                    target.value = response.body()?.movaResults ?: emptyList()
+                    _trailers.value = response.body()?.results ?: emptyList()
                 } else {
-                    _isError.postValue("Error code: ${response.code()}")
+                    _isError.value = "Error code: ${response.code()}"
                 }
             } catch (e: Exception) {
-                _isError.postValue(e.localizedMessage?.toString() ?: "Exception Popular!")
+                _isError.value = e.localizedMessage ?: "Unknown error"
             }
         }
     }

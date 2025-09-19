@@ -3,10 +3,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey_9f">#9B959F</color>
+    <color name="grey_fa">#FAFAFA</color>
     <color name="grey_2a">#1F222A</color>
     <color name="grey_9e">#9E9E9E</color>
     <color name="grey_3f">#35383F</color>
+    <color name="grey_21">#212121</color>
+    <color name="grey_61">#616161</color>
+    <color name="grey_75">#757575</color>
+    <color name="grey_f5">#F5F5F5</color>
+    <color name="grey_bd">#BDBDBD</color>
     <color name="red_09">#C4FA0909</color>
     <color name="red_21">#E21221</color>
+    <color name="red_218">#14E21221</color>
 
 </resources>

@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
@@ -13,12 +15,12 @@ class LoginViewModel(
 ) : ViewModel() {
 
     private var _isSuccess = MutableLiveData<Boolean>()
-    val isSuccess : LiveData<Boolean> = _isSuccess
+    val isSuccess: LiveData<Boolean> = _isSuccess
 
     private var _isError = MutableLiveData<String>()
-    val isError : LiveData<String> = _isError
+    val isError: LiveData<String> = _isError
 
-    fun login(email:String, password:String) {
+    fun login(email: String, password: String) {
         viewModelScope.launch {
             try {
                 val response = firebaseAuth.signInWithEmailAndPassword(email, password).await()
@@ -30,10 +32,15 @@ class LoginViewModel(
                     _isError.postValue("Exception")
                 }
 
-            } catch (e:Exception) {
-                _isError.postValue(e.localizedMessage?.toString() ?: "Exception!")
-            }
+            } catch (e: FirebaseAuthInvalidUserException) {
+                _isError.value = "email"
 
+            } catch (e: FirebaseAuthInvalidCredentialsException) {
+                _isError.value = "password"
+
+            } catch (e: Exception) {
+                _isError.value = e.localizedMessage ?: "Xeta baş verdi"
+            }
         }
     }
 }

@@ -2,8 +2,8 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="mova"
-            type="com.example.atlmovie.model.home.MovaResult" />
+            name="trailer"
+            type="com.example.atlmovie.model.openyoutube.Result" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
 
         <ImageView
             android:id="@+id/imageView"
-            load_url="@{mova.posterPath}"
+            app:load_url_youtube="@{trailer.key}"
             android:layout_width="150dp"
             android:layout_height="112dp"
             android:scaleType="fitXY"
@@ -22,13 +22,15 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{mova.title}"
+            android:text="@{trailer.name}"
             android:textAlignment="textStart"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="20dp"
             android:layout_marginTop="11dp"
             app:layout_constraintStart_toEndOf="@id/imageView"
@@ -36,19 +38,19 @@
 
         <TextView
             android:id="@+id/tvDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(mova.voteCount)}"
+            android:text="@{trailer.publishedAt}"
             android:textAlignment="textStart"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
+            android:maxLines="1"
             android:layout_marginStart="20dp"
-
             android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintBottom_toBottomOf="@id/imageView"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

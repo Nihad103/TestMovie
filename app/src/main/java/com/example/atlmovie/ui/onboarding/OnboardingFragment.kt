@@ -25,7 +25,6 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(
         list.add(OnboardingModel("Welcome Mova 2", "kmnvfelovmlomvv vev rv frre"))
         list.add(OnboardingModel("Welcome Mova 3", "rfcr rfve v ve grtr"))
 
-
         pagerAdapter.updateList(list)
 
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/black"
     tools:context=".ui.register.SignUpFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +18,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/back"
+            app:tint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,8 +42,8 @@
             android:layout_marginEnd="24dp"
             android:text="Create Your Account"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -57,19 +57,20 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="24dp"
-            app:boxBackgroundColor="@color/grey_2a"
+            app:boxBackgroundColor="@color/grey_fa"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/grey_2a"
             app:boxStrokeWidth="0dp"
             app:hintEnabled="false"
+            app:errorEnabled="false"
+            app:helperTextEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCreateAccount"
             app:startIconDrawable="@drawable/email"
-            app:startIconTint="@color/grey_9e">
+            app:startIconTint="@color/grey_21">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -79,7 +80,7 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingStart="55dp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="@color/grey_9e" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,22 +91,22 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="24dp"
-            app:boxBackgroundColor="@color/grey_2a"
+            app:boxBackgroundColor="@color/grey_fa"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/grey_2a"
             app:boxStrokeWidth="0dp"
             app:endIconMode="password_toggle"
-            app:endIconTint="@color/grey_9e"
+            app:endIconTint="@color/grey_21"
             app:hintEnabled="false"
+            app:errorEnabled="false"
+            app:helperTextEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tilEmail"
-            app:passwordToggleTint="@color/grey_9e"
             app:startIconDrawable="@drawable/password"
-            app:startIconTint="@color/grey_9e">
+            app:startIconTint="@color/grey_21">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
@@ -115,7 +116,7 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingStart="55dp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="@color/grey_9e" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="Remember Me"
-            android:textColor="@color/white"
+            android:textColor="@color/grey_21"
             app:layout_constraintBottom_toBottomOf="@+id/cbRememberMe"
             app:layout_constraintStart_toEndOf="@+id/cbRememberMe"
             app:layout_constraintTop_toTopOf="@+id/cbRememberMe" />
@@ -161,7 +162,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="24dp"
             android:text="Sign Up"
-            android:textFontWeight="700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbRememberMe" />
@@ -172,8 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="or continue with"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
+            android:textColor="@color/grey_61"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@id/divider2"
             app:layout_constraintStart_toEndOf="@id/divider"
@@ -205,11 +204,11 @@
                 android:id="@+id/cardFace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/grey_2a"
+                app:cardBackgroundColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/grey_3f">
+                app:strokeColor="#EEEEEE">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -236,11 +235,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            app:cardBackgroundColor="@color/grey_2a"
+            app:cardBackgroundColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/cardFace"
             app:layout_constraintStart_toEndOf="@+id/cardFace"
             app:layout_constraintTop_toTopOf="@+id/cardFace"
-            app:strokeColor="@color/grey_3f">
+            app:strokeColor="#EEEEEE">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -266,13 +265,13 @@
             android:id="@+id/cardApple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/grey_2a"
+            app:cardBackgroundColor="@color/white"
+            app:strokeColor="#EEEEEE"
             android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/cardGoogle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardGoogle"
-            app:layout_constraintTop_toTopOf="@+id/cardGoogle"
-            app:strokeColor="@color/grey_3f">
+            app:layout_constraintTop_toTopOf="@+id/cardGoogle">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -285,6 +284,7 @@
                     android:layout_marginVertical="18dp"
                     android:layout_marginHorizontal="32dp"
                     android:src="@drawable/apple"
+                    app:tint="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -312,7 +312,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Already have account?"
-                android:textColor="@color/white" />
+                android:textColor="@color/grey_9e" />
 
             <TextView
                 android:id="@+id/btnSignIn"

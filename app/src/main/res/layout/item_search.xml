@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="film"
+            type="com.example.atlmovie.model.search.Result" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp">
+
+        <ImageView
+            android:id="@+id/ivPoster"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            load_url="@{film.posterPath}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="44dp"
+            android:layout_height="32dp"
+            android:id="@+id/movaDegree"
+            android:text="@{String.valueOf(film.voteAverage)}"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:paddingVertical="6dp"
+            android:paddingHorizontal="10dp"
+            android:backgroundTint="@color/red_21"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="@id/ivPoster"
+            app:layout_constraintTop_toTopOf="@id/ivPoster" />
+
+    </androidx.cardview.widget.CardView>
+</layout>
