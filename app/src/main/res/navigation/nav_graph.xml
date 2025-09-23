@@ -147,4 +147,9 @@
         android:id="@+id/exploreFragment"
         android:name="com.example.atlmovie.ui.explore.ExploreFragment"
         android:label="ExploreFragment" />
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="com.example.atlmovie.ui.download.DownloadFragment"
+        android:label="fragment_download"
+        tools:layout="@layout/fragment_download" />
 </navigation>

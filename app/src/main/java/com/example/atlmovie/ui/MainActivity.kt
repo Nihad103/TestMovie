@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.homeFragment,
                     R.id.exploreFragment,
                     R.id.myListFragment,
+                    R.id.downloadFragment,
                     R.id.profileFragment -> true
                     else -> false
                 }

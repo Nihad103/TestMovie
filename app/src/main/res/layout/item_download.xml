@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="150dp"
+        android:layout_height="110dp"
+        android:id="@+id/imgFrame"
+        android:layout_marginVertical="24dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/imgDownload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/playvid"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvFilmName"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginEnd="24dp"
+        android:maxLines="2"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgFrame"
+        app:layout_constraintTop_toTopOf="@id/imgFrame" />
+
+    <TextView
+        android:id="@+id/tvFilmDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:maxLines="1"
+        android:layout_marginEnd="24dp"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgFrame"
+        app:layout_constraintTop_toBottomOf="@+id/tvFilmName" />
+
+    <TextView
+        android:id="@+id/tvSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_my_list_size"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="6dp"
+        android:textColor="@color/red_21"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/imgFrame"
+        app:layout_constraintStart_toEndOf="@id/imgFrame"
+        app:layout_constraintTop_toBottomOf="@+id/tvFilmDate" />
+
+    <ImageView
+        android:id="@+id/imgDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/deleteicon"
+        app:tint="@color/red_21"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvSize"
+        app:layout_constraintTop_toTopOf="@id/tvSize"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

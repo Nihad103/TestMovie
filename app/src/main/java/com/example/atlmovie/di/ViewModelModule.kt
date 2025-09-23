@@ -4,9 +4,11 @@ import androidx.lifecycle.SavedStateHandle
 import com.example.atlmovie.ui.detail.DetailViewModel
 import com.example.atlmovie.ui.detail.morelikethis.MoreLikeThisViewModel
 import com.example.atlmovie.ui.detail.trailers.TrailersViewModel
+import com.example.atlmovie.ui.download.DownloadViewModel
 import com.example.atlmovie.ui.explore.ExploreViewModel
 import com.example.atlmovie.ui.home.HomeViewModel
 import com.example.atlmovie.ui.login.LoginViewModel
+import com.example.atlmovie.ui.mylist.MyListViewModel
 import com.example.atlmovie.ui.notifications.NotificationsViewModel
 import com.example.atlmovie.ui.register.SignUpViewModel
 import com.example.atlmovie.ui.seeall.SeeAllViewModel
@@ -23,4 +25,6 @@ val viewModelModule = module {
     viewModel { SignUpViewModel(get()) }
     viewModel { NotificationsViewModel(get()) }
     viewModel { ExploreViewModel(get()) }
+    viewModel { MyListViewModel(get()) }
+    viewModel { DownloadViewModel(get()) }
 }

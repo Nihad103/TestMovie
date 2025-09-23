@@ -4,8 +4,8 @@ plugins {
     id("kotlin-parcelize")
     kotlin("kapt")
     id("androidx.navigation.safeargs")
+    id("com.google.devtools.ksp")
     alias(libs.plugins.google.gms.google.services)
-//    alias(libs.plugins.google.gms.google.services)
 //    id("com.google.gms.google-services")
 }
 
@@ -88,4 +88,8 @@ dependencies {
     // Material Design
     implementation ("com.google.android.material:material:1.13.0")
 
+    // Room
+    implementation ("androidx.room:room-runtime:2.6.0")
+    implementation ("androidx.room:room-ktx:2.6.0")
+    ksp("androidx.room:room-compiler:2.6.0")
 }

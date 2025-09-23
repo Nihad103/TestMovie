@@ -60,6 +60,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
+                android:overScrollMode="never"
                 tools:listitem="@layout/item_see_all"
                 android:layout_marginTop="33dp"
                 app:layout_constraintEnd_toEndOf="parent"

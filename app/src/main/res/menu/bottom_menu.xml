@@ -13,6 +13,10 @@
         android:title="My List"
         android:icon="@drawable/mylist" />
 
+    <item android:id="@+id/downloadFragment"
+        android:title="Download"
+        android:icon="@drawable/bottomnavdownload" />
+
     <item android:id="@+id/profileFragment"
         android:title="Profile"
         android:icon="@drawable/profile" />

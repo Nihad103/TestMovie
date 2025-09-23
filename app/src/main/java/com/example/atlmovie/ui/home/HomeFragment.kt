@@ -91,12 +91,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         viewModel.newReleasesMovies.observe(viewLifecycleOwner) {
             newReleasesAdapter.updateList(ArrayList(it))
         }
-        viewModel.popularMovies.observe(viewLifecycleOwner) {
-            popularAdapter.updateList(ArrayList(it))
-        }
+
         viewModel.isError.observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-
         }
     }
 

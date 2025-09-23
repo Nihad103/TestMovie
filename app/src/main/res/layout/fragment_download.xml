@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.mylist.MyListFragment">
+    tools:context=".ui.download.DownloadFragment">
 
     <ImageView
         android:id="@+id/ivTitle"
@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="My List"
+        android:text="Download"
         android:textSize="24sp"
         android:textColor="@color/black"
         android:layout_marginStart="16dp"
@@ -56,7 +56,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/rvMyList"
+        android:id="@+id/rvDownload"
         android:overScrollMode="never"
         android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,16 +85,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/imgSearch">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search"
-        android:maxLines="1"
-        android:inputType="text"
-        android:paddingStart="55dp"
-        android:textColorHint="@color/grey_bd"
-        android:textSize="14sp"
-        android:textColor="@color/black"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search"
+            android:maxLines="1"
+            android:inputType="text"
+            android:paddingStart="55dp"
+            android:textColorHint="@color/grey_bd"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

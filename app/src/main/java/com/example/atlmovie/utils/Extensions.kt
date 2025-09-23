@@ -6,6 +6,9 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.atlmovie.R
+import com.example.atlmovie.model.detail.MovaDetail
+import com.example.atlmovie.model.download.DownloadEntity
+import com.example.atlmovie.model.mylist.MyListEntity
 import com.google.android.material.textfield.TextInputLayout
 
 fun ImageView.loadImageUrl(url: String?) {
@@ -19,15 +22,6 @@ fun ImageView.loadImageUrl(url: String?) {
         .placeholder(R.drawable.placeholder)
         .error(R.drawable.placeholder)
         .into(this)
-}
-
-fun ImageView.loadImageYoutube(key: String?){
-    key?.let {
-        val youtubeUrl = "https://img.youtube.com/vi/"+it+"/hqdefault.jpg"
-        Glide.with(this.context)
-            .load(youtubeUrl)
-            .into(this)
-        }
 }
 
 fun TextInputLayout.showError(message: String, context: android.content.Context) {
@@ -50,6 +44,41 @@ fun TextInputLayout.clearError(context: android.content.Context) {
     this.setEndIconTintList(ContextCompat.getColorStateList(context, R.color.grey_21))
 }
 
+fun MovaDetail.toMyListEntity(): MyListEntity {
+    return MyListEntity(
+        id = this.id,
+        adult = this.adult,
+        backdropPath = this.backdropPath,
+        originalLanguage = this.originalLanguage,
+        originalTitle = this.originalTitle,
+        overview = this.overview,
+        popularity = this.popularity,
+        posterPath = this.posterPath,
+        releaseDate = this.releaseDate,
+        title = this.title,
+        video = this.video,
+        voteAverage = this.voteAverage,
+        voteCount = this.voteCount
+    )
+}
+
+fun MovaDetail.toDownloadEntity(): DownloadEntity {
+    return DownloadEntity(
+        id = id,
+        adult = adult,
+        backdropPath = backdropPath,
+        originalLanguage = originalLanguage,
+        originalTitle = originalTitle,
+        overview = overview,
+        popularity = popularity,
+        posterPath = posterPath,
+        releaseDate = releaseDate,
+        title = title,
+        video = video,
+        voteAverage = voteAverage,
+        voteCount = voteCount
+    )
+}
 
 fun View.visible(){
     this.visibility=View.VISIBLE

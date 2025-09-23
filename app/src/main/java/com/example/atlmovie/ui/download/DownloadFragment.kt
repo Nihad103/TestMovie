@@ -1,4 +1,4 @@
-package com.example.atlmovie.ui.mylist
+package com.example.atlmovie.ui.download
 
 import android.widget.Toast
 import androidx.core.os.bundleOf
@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.MyListAdapter
+import com.example.atlmovie.adapter.DownloadAdapter
 import com.example.atlmovie.adapter.OnMovieClickListener
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentMyListBinding
@@ -14,17 +14,17 @@ import com.example.atlmovie.utils.gone
 import com.example.atlmovie.utils.visible
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MyListFragment : BaseFragment<FragmentMyListBinding>(
+class DownloadFragment : BaseFragment<FragmentMyListBinding>(
     FragmentMyListBinding::inflate
 ), OnMovieClickListener {
 
-    private val viewModel: MyListViewModel by viewModel()
-    private lateinit var adapter: MyListAdapter
+    private val viewModel: DownloadViewModel by viewModel()
+    private lateinit var adapter: DownloadAdapter
 
     override fun onViewCreateFinish() {
         setupRecyclerView()
         observes()
-        viewModel.fetchMyListMovies()
+        viewModel.fetchDownloadMovies()
 
         binding.imgSearch.setOnClickListener {
             if (binding.etSearchMyList.isVisible) {
@@ -45,21 +45,22 @@ class MyListFragment : BaseFragment<FragmentMyListBinding>(
     }
 
     private fun setupRecyclerView() {
-        adapter = MyListAdapter(
+        adapter = DownloadAdapter(
             listener = this,
             onDeleteClick = { movie ->
                 viewModel.deleteMovie(movie)
                 Toast.makeText(
                     requireContext(),
-                    "${movie.title} deleted",
-                    Toast.LENGTH_SHORT).show()
+                    "${movie.title} deleted from downloads",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         )
         binding.rvMyList.adapter = adapter
     }
 
     private fun observes() {
-        viewModel.myListMovies.observe(viewLifecycleOwner) { list ->
+        viewModel.downloadMovies.observe(viewLifecycleOwner) { list ->
             if (list.isNullOrEmpty()) {
                 binding.rvMyList.gone()
                 binding.ivError404.visible()
@@ -69,7 +70,6 @@ class MyListFragment : BaseFragment<FragmentMyListBinding>(
                 adapter.updateList(list)
             }
         }
-
 
         viewModel.error.observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()

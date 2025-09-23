@@ -14,6 +14,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
+        android:overScrollMode="never"
         tools:listitem="@layout/item_more_like_this"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

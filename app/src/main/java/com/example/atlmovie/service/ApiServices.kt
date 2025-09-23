@@ -2,9 +2,11 @@ package com.example.atlmovie.service
 
 import com.example.atlmovie.model.detail.MovaDetail
 import com.example.atlmovie.model.home.MovaListsHome
+import com.example.atlmovie.model.mylist.MyListEntity
 import com.example.atlmovie.model.openyoutube.MovaVideos
 import com.example.atlmovie.model.search.SearchModel
 import com.example.atlmovie.utils.Constants.API_KEY
+import com.example.atlmovie.utils.toMyListEntity
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

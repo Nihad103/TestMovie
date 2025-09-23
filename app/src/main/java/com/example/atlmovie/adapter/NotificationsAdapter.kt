@@ -9,22 +9,23 @@ import com.example.atlmovie.model.home.MovaResult
 
 class NotificationsAdapter(
     private val listener: OnMovieClickListener
-) : Adapter<NotificationsAdapter.NotificationsViewHolder>(){
+) : Adapter<NotificationsAdapter.NotificationsViewHolder>() {
 
     private val itemsNotifications = arrayListOf<MovaResult>()
 
-    inner class NotificationsViewHolder(private val itemNotificationsBinding: ItemNotificationsBinding)
-        : ViewHolder(itemNotificationsBinding.root) {
+    inner class NotificationsViewHolder(private val itemNotificationsBinding: ItemNotificationsBinding) :
+        ViewHolder(itemNotificationsBinding.root) {
         fun bind(item: MovaResult) {
             itemNotificationsBinding.film = item
             itemNotificationsBinding.root.setOnClickListener {
                 listener.onMovieClick(item.id)
             }
         }
-        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsViewHolder {
-        val view = ItemNotificationsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view =
+            ItemNotificationsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NotificationsViewHolder(view)
     }
 
