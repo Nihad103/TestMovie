@@ -6,6 +6,7 @@
     <color name="grey_fa">#FAFAFA</color>
     <color name="grey_2a">#1F222A</color>
     <color name="grey_9e">#9E9E9E</color>
+    <color name="grey_ee">#EEEEEE</color>
     <color name="grey_3f">#35383F</color>
     <color name="grey_21">#212121</color>
     <color name="grey_61">#616161</color>
@@ -15,5 +16,6 @@
     <color name="red_09">#C4FA0909</color>
     <color name="red_21">#E21221</color>
     <color name="red_218">#14E21221</color>
-
+    <color name="red_e9">#FCE7E9</color>
+    <color name="card_text">#E21221</color>
 </resources>

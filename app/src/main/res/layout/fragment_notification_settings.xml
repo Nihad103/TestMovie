@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.profile.notification.NotificationSettingsFragment">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Notification"
+        android:textColor="@color/grey_21"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+        app:layout_constraintStart_toEndOf="@+id/ivBack"
+        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+    <TextView
+        android:id="@+id/tvGeneralNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="General Notification"
+        android:textColor="@color/grey_21"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:checked="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGeneralNotification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvGeneralNotification"
+        app:thumbTint="@color/white"
+        app:trackTint="@drawable/switch_track_color"/>
+
+    <TextView
+        android:id="@+id/tvNewArrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="New Arrival"
+        android:textSize="18sp"
+        android:textColor="@color/grey_21"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGeneralNotification" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:checked="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNewArrival"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNewArrival"
+        app:thumbTint="@color/white"
+        app:trackTint="@drawable/switch_track_color"/>
+
+    <TextView
+        android:id="@+id/tvNewServicesAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="New Services Available"
+        android:textSize="18sp"
+        android:textColor="@color/grey_21"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewArrival" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:checked="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNewServicesAvailable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNewServicesAvailable"
+        app:thumbTint="@color/white"
+        app:trackTint="@drawable/switch_track_color"/>
+
+    <TextView
+        android:id="@+id/tvNewReleasesMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="New Releases Movie"
+        android:textSize="18sp"
+        android:textColor="@color/grey_21"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewServicesAvailable" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:checked="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNewReleasesMovie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNewReleasesMovie"
+        app:thumbTint="@color/white"
+        app:trackTint="@drawable/switch_track_color"/>
+
+
+    <TextView
+        android:id="@+id/tvAppUpdates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="App Updates"
+        android:textSize="18sp"
+        android:textColor="@color/grey_21"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewReleasesMovie" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:checked="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAppUpdates"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvAppUpdates"
+        app:thumbTint="@color/white"
+        app:trackTint="@drawable/switch_track_color"/>
+
+    <TextView
+        android:id="@+id/tvSubscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Subscription"
+        android:textSize="18sp"
+        android:textColor="@color/grey_21"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppUpdates" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:checked="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSubscription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvSubscription"
+        app:thumbTint="@color/white"
+        app:trackTint="@drawable/switch_track_color"/>
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:tint="@color/black"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

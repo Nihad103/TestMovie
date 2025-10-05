@@ -18,12 +18,10 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             app:boxBackgroundColor="@color/grey_f5"
-            app:boxStrokeColor="@color/grey_f5"
             app:boxStrokeWidth="0dp"
             app:hintEnabled="false"
             app:startIconDrawable="@drawable/search"
             app:startIconTint="@color/grey_9e"
-            app:boxBackgroundMode="filled"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -42,6 +40,7 @@
                 android:paddingStart="55dp"
                 android:textColorHint="@color/grey_bd"
                 android:textSize="14sp"
+                android:textAlignment="textStart"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>

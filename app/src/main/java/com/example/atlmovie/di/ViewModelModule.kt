@@ -10,6 +10,8 @@ import com.example.atlmovie.ui.home.HomeViewModel
 import com.example.atlmovie.ui.login.LoginViewModel
 import com.example.atlmovie.ui.mylist.MyListViewModel
 import com.example.atlmovie.ui.notifications.NotificationsViewModel
+import com.example.atlmovie.ui.profile.ProfileViewModel
+import com.example.atlmovie.ui.profile.cards.PaymentViewModel
 import com.example.atlmovie.ui.register.SignUpViewModel
 import com.example.atlmovie.ui.seeall.SeeAllViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -27,4 +29,6 @@ val viewModelModule = module {
     viewModel { ExploreViewModel(get()) }
     viewModel { MyListViewModel(get()) }
     viewModel { DownloadViewModel(get()) }
+    viewModel { ProfileViewModel(get()) }
+    viewModel { PaymentViewModel(get()) }
 }

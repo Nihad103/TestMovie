@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-parcelize")
     kotlin("kapt")
-    id("androidx.navigation.safeargs")
+    id("androidx.navigation.safeargs.kotlin")
     id("com.google.devtools.ksp")
     alias(libs.plugins.google.gms.google.services)
 //    id("com.google.gms.google-services")
@@ -92,4 +92,7 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.6.0")
     implementation ("androidx.room:room-ktx:2.6.0")
     ksp("androidx.room:room-compiler:2.6.0")
+
+    // CountryCodePicker
+    implementation("com.hbb20:ccp:2.5.4")
 }

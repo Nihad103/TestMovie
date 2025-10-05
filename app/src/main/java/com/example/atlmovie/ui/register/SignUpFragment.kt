@@ -1,12 +1,12 @@
 package com.example.atlmovie.ui.register
 
-import android.content.Context
 import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentSignUpBinding
+import com.example.atlmovie.utils.Prefs
 import com.example.atlmovie.utils.clearError
 import com.example.atlmovie.utils.showError
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,10 +34,11 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(
     private fun observes() {
         viewModel.isSuccess.observe(viewLifecycleOwner) {
             if (it) {
-                val prefs = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
                 if (binding.cbRememberMe.isChecked) {
-                    prefs.edit().putBoolean("saved_login", true).apply()
+                    Prefs.setSavedLogin(requireContext(), true)
                 }
+
+                Prefs.setUserEmail(requireContext(), binding.etEmail.text.toString().trim())
 
                 val navOptions = NavOptions.Builder()
                     .setPopUpTo(R.id.signUpFragment, true)

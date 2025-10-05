@@ -1,18 +1,22 @@
 package com.example.atlmovie.service
 
+import com.example.atlmovie.dao.CardDao
 import com.example.atlmovie.dao.DownloadDao
 import com.example.atlmovie.dao.MyListDao
+import com.example.atlmovie.model.CardModel
 import com.example.atlmovie.model.detail.MovaDetail
 import com.example.atlmovie.model.download.DownloadEntity
 import com.example.atlmovie.model.mylist.MyListEntity
 import com.example.atlmovie.utils.toDownloadEntity
 import com.example.atlmovie.utils.toMyListEntity
+import kotlinx.coroutines.flow.Flow
 
 class MovieRepository(
     private val api: ApiServices,
     private val myListDao: MyListDao,
-    private val downloadDao: DownloadDao
-) {
+    private val downloadDao: DownloadDao,
+    private val cardDao: CardDao,
+    ) {
     suspend fun getPopular() = api.getPopular()
     suspend fun getTopRated() = api.getTopRated()
     suspend fun getUpcoming() = api.getUpcoming()
@@ -55,4 +59,15 @@ class MovieRepository(
         return downloadDao.isDownloadExist(movieId)
     }
 
+    // Select Card
+    fun getCards(): Flow<List<CardModel>> {
+        return cardDao.getAllCards()
+
+    }
+    suspend fun addCard(card: CardModel){
+        cardDao.addCard(card)
+    }
+    suspend fun deleteCard(id: Int): Int {
+        return cardDao.deleteCard(id)
+    }
 }

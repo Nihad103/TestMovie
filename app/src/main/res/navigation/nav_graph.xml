@@ -137,7 +137,28 @@
         android:id="@+id/profileFragment"
         android:name="com.example.atlmovie.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_notificationSettingsFragment"
+            app:destination="@id/notificationSettingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_privacyFragment"
+            app:destination="@id/privacyFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_helpCenterFragment"
+            app:destination="@id/helpCenterFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_subscribeToPremiumFragment"
+            app:destination="@id/subscribeToPremiumFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myListFragment"
         android:name="com.example.atlmovie.ui.mylist.MyListFragment"
@@ -152,4 +173,81 @@
         android:name="com.example.atlmovie.ui.download.DownloadFragment"
         android:label="fragment_download"
         tools:layout="@layout/fragment_download" />
+    <fragment
+        android:id="@+id/notificationSettingsFragment"
+        android:name="com.example.atlmovie.ui.profile.notification.NotificationSettingsFragment"
+        android:label="fragment_notification_settings"
+        tools:layout="@layout/fragment_notification_settings" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.atlmovie.ui.profile.editprofile.EditProfileFragment"
+        android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/privacyFragment"
+        android:name="com.example.atlmovie.ui.profile.privacy.PrivacyFragment"
+        android:label="fragment_privacy"
+        tools:layout="@layout/fragment_privacy" />
+    <fragment
+        android:id="@+id/helpCenterFragment"
+        android:name="com.example.atlmovie.ui.profile.helpcenter.HelpCenterFragment"
+        android:label="fragment_help_center"
+        tools:layout="@layout/fragment_help_center" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.example.atlmovie.ui.profile.helpcenter.contactus.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/faqFragment"
+        android:name="com.example.atlmovie.ui.profile.helpcenter.faq.FaqFragment"
+        android:label="fragment_faq"
+        tools:layout="@layout/fragment_faq" />
+    <fragment
+        android:id="@+id/subscribeToPremiumFragment"
+        android:name="com.example.atlmovie.ui.profile.cards.SubscribeToPremiumFragment"
+        android:label="fragment_subscribe_to_premium"
+        tools:layout="@layout/fragment_subscribe_to_premium" >
+        <action
+            android:id="@+id/action_subscribeToPremiumFragment_to_paymentMethodFragment"
+            app:destination="@id/paymentMethodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentMethodFragment"
+        android:name="com.example.atlmovie.ui.profile.cards.PaymentMethodFragment"
+        android:label="fragment_payment_method"
+        tools:layout="@layout/fragment_payment_method" >
+        <argument
+            android:name="paymentargs"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_paymentMethodFragment_to_addNewFragment"
+            app:destination="@id/addNewFragment" />
+        <action
+            android:id="@+id/action_paymentMethodFragment_to_reviewSummaryFragment"
+            app:destination="@id/reviewSummaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewFragment"
+        android:name="com.example.atlmovie.ui.profile.cards.AddNewFragment"
+        android:label="fragment_add_new"
+        tools:layout="@layout/fragment_add_new" />
+    <fragment
+        android:id="@+id/reviewSummaryFragment"
+        android:name="com.example.atlmovie.ui.profile.cards.ReviewSummaryFragment"
+        android:label="fragment_review_summary"
+        tools:layout="@layout/fragment_review_summary">
+        <argument
+            android:name="cardNumber"
+            app:argType="string" />
+        <argument
+            android:name="cardImage"
+            app:argType="integer" />
+        <argument
+            android:name="paymentName"
+            app:argType="string"
+            android:defaultValue="" />
+        <action
+            android:id="@+id/action_reviewSummaryFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

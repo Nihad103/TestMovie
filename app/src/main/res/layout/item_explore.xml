@@ -20,15 +20,13 @@
             load_url="@{film.posterPath}" />
 
             <com.google.android.material.button.MaterialButton
-                android:layout_width="44dp"
-                android:layout_height="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/movaDegree"
                 android:text="@{String.valueOf(film.voteAverage)}"
                 android:textAlignment="center"
                 android:textSize="10sp"
                 android:textColor="@color/white"
-                android:paddingVertical="6dp"
-                android:paddingHorizontal="10dp"
                 android:backgroundTint="@color/red_21"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"

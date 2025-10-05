@@ -44,28 +44,29 @@
             android:textSize="18sp"
             android:text="@{film.title}"
             android:maxLines="2"
+            android:textAlignment="textStart"
             android:layout_marginStart="20dp"
             android:layout_marginTop="11dp"
-            app:layout_constraintEnd_toStartOf="@id/tvFilmDate"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgFrame"
             app:layout_constraintTop_toTopOf="@id/imgFrame" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/tvFilmDate"
-            android:textFontWeight="400"
             android:textColor="@color/black"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:text="@{film.releaseDate}"
             android:maxLines="1"
-            android:layout_marginStart="12dp"
+            android:textAlignment="textStart"
+            android:layout_marginStart="20dp"
             android:layout_marginVertical="5dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvFilmName"
-            app:layout_constraintTop_toTopOf="@id/tvFilmName"
-            app:layout_constraintBottom_toBottomOf="@id/tvFilmName"/>
+            app:layout_constraintStart_toEndOf="@id/imgFrame"
+            app:layout_constraintBottom_toBottomOf="@id/imgFrame"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

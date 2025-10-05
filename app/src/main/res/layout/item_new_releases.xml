@@ -24,7 +24,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="44dp"
-            android:layout_height="32dp"
+            android:layout_height="36dp"
             android:id="@+id/movaDegree"
             android:text="@{String.valueOf(movaNewReleases.voteAverage)}"
             android:textAlignment="center"

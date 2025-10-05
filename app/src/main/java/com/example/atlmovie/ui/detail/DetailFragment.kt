@@ -18,7 +18,6 @@ import com.example.atlmovie.databinding.FragmentDetailBinding
 import com.example.atlmovie.model.download.DownloadEntity
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch

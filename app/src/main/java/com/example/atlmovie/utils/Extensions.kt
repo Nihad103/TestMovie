@@ -86,3 +86,17 @@ fun View.visible(){
 fun View.gone(){
     this.visibility=View.GONE
 }
+
+
+fun maskCardNumberGrouped(cardNumber: String): String {
+    val visibleCount = 4
+    val digitsOnly = cardNumber.replace(" ", "")
+    val maskedBuilder = StringBuilder()
+
+    for (i in digitsOnly.indices) {
+        maskedBuilder.append(
+            if (i < digitsOnly.length - visibleCount) '*' else digitsOnly[i]
+        )
+    }
+    return maskedBuilder.toString().chunked(4).joinToString(" ")
+}

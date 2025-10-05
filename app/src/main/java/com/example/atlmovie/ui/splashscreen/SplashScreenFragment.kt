@@ -1,12 +1,12 @@
 package com.example.atlmovie.ui.splashscreen
 
-import android.content.Context
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentSplashScreenBinding
+import com.example.atlmovie.utils.Prefs
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -17,9 +17,8 @@ class SplashScreenFragment : BaseFragment<FragmentSplashScreenBinding>(
         lifecycleScope.launch {
             delay(2000)
 
-            val prefs = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-            val isFirstLaunch = prefs.getBoolean("first_launch", true)
-            val isSavedLogin = prefs.getBoolean("saved_login", false)
+            val isFirstLaunch = Prefs.isFirstLaunch(requireContext())
+            val isSavedLogin = Prefs.isSavedLogin(requireContext())
 
             val navController = findNavController()
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FFFFFFFF</color>  <!--  white  -->
+    <color name="white">#FF000000</color>  <!--  black  -->
+    <color name="grey_9f">#9B959F</color>
+    <color name="grey_fa">#1F222A</color>   <!--  grey_2a  -->
+    <color name="grey_2a">#F5F5F5</color>   <!--  grey_f5  -->
+    <color name="grey_9e">#9E9E9E</color>
+    <color name="grey_ee">#35383F</color>#EEEEEE   <!--  grey_3f  -->
+    <color name="grey_3f">#35383F</color>
+    <color name="grey_21">#FFFFFFFF</color>   <!--  white  -->
+    <color name="grey_61">#616161</color>
+    <color name="grey_75">#BDBDBD</color>   <!--  grey_bd  -->
+    <color name="grey_f5">#1F222A</color>   <!--  grey_2a  -->
+    <color name="grey_bd">#757575</color>   <!--  grey_75  -->
+    <color name="red_09">#C4FA0909</color>
+    <color name="red_21">#E21221</color>
+    <color name="red_218">#14E21221</color>
+    <color name="red_e9">#35383F</color>#FCE7E9   <!--  grey_3f  -->
+    <color name="card_text">#FFFFFF</color>
+</resources>

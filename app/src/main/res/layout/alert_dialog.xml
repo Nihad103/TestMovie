@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_radius"
+    android:backgroundTintMode="multiply"
+    android:elevation="0dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingBottom="48dp"
+    android:paddingTop="8dp">
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider5"
+        android:layout_width="38dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:background="?android:attr/listDivider"
+        app:dividerColor="@color/grey_21" />
+
+    <TextView
+        android:id="@+id/tvLogoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Logout"
+        android:textColor="@color/red_21"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:dividerColor="@color/grey_ee" />
+
+    <TextView
+        android:id="@+id/tvLogoutMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Are you sure you want to log out?"
+        android:textColor="@color/grey_21"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:elevation="0dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/grey_21"
+            android:elevation="0dp"
+            android:text="Cancel"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="12dp"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red_21"
+            android:text="Yes, Logout"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

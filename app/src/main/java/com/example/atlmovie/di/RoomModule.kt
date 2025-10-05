@@ -12,4 +12,5 @@ val roomModule = module {
     }
     single { get<AppDatabase>().myListDao() }
     single { get<AppDatabase>().downloadDao() }
+    single { get<AppDatabase>().cardDao() }
 }

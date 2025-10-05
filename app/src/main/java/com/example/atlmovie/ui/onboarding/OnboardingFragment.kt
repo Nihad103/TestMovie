@@ -10,6 +10,7 @@ import com.example.atlmovie.adapter.PagerAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentOnboardingBinding
 import com.example.atlmovie.model.OnboardingModel
+import com.example.atlmovie.utils.Prefs
 
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(
     FragmentOnboardingBinding::inflate
@@ -30,17 +31,13 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position == list.size - 1) {
-                    binding.btnNext.visibility = View.VISIBLE
-                } else {
-                    binding.btnNext.visibility = View.GONE
-                }
+                binding.btnNext.visibility =
+                    if (binding.viewPager.currentItem == list.size - 1) View.VISIBLE else View.GONE
             }
         })
 
         binding.btnNext.setOnClickListener {
-            val prefs = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-            prefs.edit().putBoolean("first_launch", false).apply()
+            Prefs.setFirstLaunch(requireContext(), false)
 
             findNavController().navigate(R.id.action_onboardingFragment_to_letsYouInFragment)
         }
