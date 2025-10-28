@@ -1,7 +1,6 @@
 package com.example.atlmovie.ui.detail
 
 import android.app.AlertDialog
-import android.content.Context
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ProgressBar
@@ -11,11 +10,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.PeopleAdapter
-import com.example.atlmovie.adapter.pager.DetailPagerAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentDetailBinding
 import com.example.atlmovie.model.download.DownloadEntity
+import com.example.atlmovie.ui.adapter.detail.PeopleAdapter
+import com.example.atlmovie.ui.adapter.detail.pager.DetailPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

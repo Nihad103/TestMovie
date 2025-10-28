@@ -4,10 +4,10 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.OnMovieClickListener
-import com.example.atlmovie.adapter.pager.MoreLikeThisAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentMoreLikeThisBinding
+import com.example.atlmovie.ui.adapter.OnMovieClickListener
+import com.example.atlmovie.ui.adapter.detail.pager.MoreLikeThisAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MoreLikeThisFragment : BaseFragment<FragmentMoreLikeThisBinding>(

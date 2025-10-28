@@ -1,10 +1,10 @@
 package com.example.atlmovie.ui.profile.helpcenter.contactus
 
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.helpcenter.contact.ContactAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentContactUsBinding
 import com.example.atlmovie.model.helpcenter.contact.Contact
+import com.example.atlmovie.ui.adapter.helpcenter.contact.ContactAdapter
 
 class ContactUsFragment : BaseFragment<FragmentContactUsBinding>(
     FragmentContactUsBinding::inflate

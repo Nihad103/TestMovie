@@ -1,9 +1,9 @@
 package com.example.atlmovie.ui.profile.helpcenter
 
 import androidx.navigation.fragment.findNavController
-import com.example.atlmovie.adapter.helpcenter.HelpCenterAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentHelpCenterBinding
+import com.example.atlmovie.ui.adapter.helpcenter.HelpCenterAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HelpCenterFragment : BaseFragment<FragmentHelpCenterBinding>(

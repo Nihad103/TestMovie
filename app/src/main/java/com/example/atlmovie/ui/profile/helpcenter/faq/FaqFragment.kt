@@ -1,10 +1,10 @@
 package com.example.atlmovie.ui.profile.helpcenter.faq
 
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.helpcenter.faq.FaqAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentFaqBinding
 import com.example.atlmovie.model.helpcenter.faq.Faq
+import com.example.atlmovie.ui.adapter.helpcenter.faq.FaqAdapter
 import com.example.atlmovie.utils.gone
 import com.example.atlmovie.utils.visible
 

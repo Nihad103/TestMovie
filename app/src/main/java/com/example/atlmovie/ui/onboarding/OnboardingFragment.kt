@@ -1,15 +1,13 @@
 package com.example.atlmovie.ui.onboarding
 
-import android.content.Context
 import android.view.View
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.PagerAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentOnboardingBinding
-import com.example.atlmovie.model.OnboardingModel
+import com.example.atlmovie.model.onboarding.OnboardingModel
+import com.example.atlmovie.ui.adapter.onboarding.PagerAdapter
 import com.example.atlmovie.utils.Prefs
 
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(

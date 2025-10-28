@@ -4,10 +4,10 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.NotificationsAdapter
-import com.example.atlmovie.adapter.OnMovieClickListener
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentNotificationsBinding
+import com.example.atlmovie.ui.adapter.OnMovieClickListener
+import com.example.atlmovie.ui.adapter.notifications.NotificationsAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(

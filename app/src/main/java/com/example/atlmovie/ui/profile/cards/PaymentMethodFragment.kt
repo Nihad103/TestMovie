@@ -8,16 +8,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.CardAdapter
-import com.example.atlmovie.adapter.PaymentAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentPaymentMethodBinding
 import com.example.atlmovie.model.CardModel
-import com.example.atlmovie.utils.gone
+import com.example.atlmovie.ui.adapter.payment.CardAdapter
+import com.example.atlmovie.ui.adapter.payment.PaymentAdapter
 import com.example.atlmovie.utils.maskCardNumberGrouped
-import com.example.atlmovie.utils.visible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

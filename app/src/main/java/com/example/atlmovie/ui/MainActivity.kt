@@ -37,9 +37,6 @@ class MainActivity : AppCompatActivity() {
                     R.id.profileFragment -> true
                     else -> false
                 }
-//                if (destination.id == R.id.termsAndConditionsFragment) {
-//                    binding.bottomNav.menu.findItem(R.id.profileFragment).isChecked = true
-//                }
             }
         }
     }

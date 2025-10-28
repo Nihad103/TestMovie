@@ -3,17 +3,11 @@ package com.example.atlmovie.ui.detail.trailers
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.example.atlmovie.R
-import com.example.atlmovie.adapter.OnMovieClickListener
-import com.example.atlmovie.adapter.pager.TrailersAdapter
-import com.example.atlmovie.adapter.trailerclickinterface.OnTrailerClickListener
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentTrailersBinding
+import com.example.atlmovie.ui.adapter.detail.pager.TrailersAdapter
+import com.example.atlmovie.ui.adapter.detail.trailerclickinterface.OnTrailerClickListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TrailersFragment : BaseFragment<FragmentTrailersBinding>(

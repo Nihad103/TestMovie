@@ -63,6 +63,7 @@
             android:backgroundTint="@color/grey_21"
             android:elevation="0dp"
             android:text="Cancel"
+            android:textAlignment="center"
             android:textColor="@color/white" />
 
         <Space
@@ -76,6 +77,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/red_21"
             android:text="Yes, Logout"
+            android:textAlignment="center"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

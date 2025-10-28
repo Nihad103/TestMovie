@@ -14,8 +14,7 @@ class HomeViewModel(
     private val movieRepository: MovieRepository
 ) : ViewModel() {
 
-    private val _firstPopularMovie = MutableLiveData<MovaResult?>()
-    val firstPopularMovie: LiveData<MovaResult?> = _firstPopularMovie
+    private val firstPopularMovie = MutableLiveData<MovaResult?>()
 
     private val _popularMovies = MutableLiveData<List<MovaResult>>()
     val popularMovies: LiveData<List<MovaResult>> = _popularMovies
@@ -36,7 +35,7 @@ class HomeViewModel(
         call = { movieRepository.getPopular() },
         target = _popularMovies
     ) {
-        _firstPopularMovie.value = it.firstOrNull()
+        firstPopularMovie.value = it.firstOrNull()
     }
 
     fun getTopRatedData() = fetchMovies(

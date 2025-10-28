@@ -7,13 +7,13 @@ import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.NewReleasesAdapter
-import com.example.atlmovie.adapter.OnMovieClickListener
-import com.example.atlmovie.adapter.PopularAdapter
-import com.example.atlmovie.adapter.TopRatedAdapter
-import com.example.atlmovie.adapter.UpcomingAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentHomeBinding
+import com.example.atlmovie.ui.adapter.OnMovieClickListener
+import com.example.atlmovie.ui.adapter.home.NewReleasesAdapter
+import com.example.atlmovie.ui.adapter.home.PopularAdapter
+import com.example.atlmovie.ui.adapter.home.TopRatedAdapter
+import com.example.atlmovie.ui.adapter.home.UpcomingAdapter
 import com.example.atlmovie.utils.SeeAllType
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

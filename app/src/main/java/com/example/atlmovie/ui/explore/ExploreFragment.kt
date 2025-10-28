@@ -5,11 +5,11 @@ import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.MoviesAdapter
-import com.example.atlmovie.adapter.OnMovieClickListener
-import com.example.atlmovie.adapter.search.SearchMoviesAdapter
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentExploreBinding
+import com.example.atlmovie.ui.adapter.MoviesAdapter
+import com.example.atlmovie.ui.adapter.OnMovieClickListener
+import com.example.atlmovie.ui.adapter.search.SearchMoviesAdapter
 import com.example.atlmovie.utils.gone
 import com.example.atlmovie.utils.visible
 import org.koin.androidx.viewmodel.ext.android.viewModel

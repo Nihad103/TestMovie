@@ -6,10 +6,10 @@ import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.DownloadAdapter
-import com.example.atlmovie.adapter.OnMovieClickListener
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentMyListBinding
+import com.example.atlmovie.ui.adapter.OnMovieClickListener
+import com.example.atlmovie.ui.adapter.download.DownloadAdapter
 import com.example.atlmovie.utils.gone
 import com.example.atlmovie.utils.visible
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -1,14 +1,13 @@
 package com.example.atlmovie.ui.seeall
 
 import androidx.core.os.bundleOf
-import androidx.lifecycle.createSavedStateHandle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.atlmovie.R
-import com.example.atlmovie.adapter.MoviesAdapter
-import com.example.atlmovie.adapter.OnMovieClickListener
 import com.example.atlmovie.base.BaseFragment
 import com.example.atlmovie.databinding.FragmentSeeAllBinding
+import com.example.atlmovie.ui.adapter.MoviesAdapter
+import com.example.atlmovie.ui.adapter.OnMovieClickListener
 import com.example.atlmovie.utils.SeeAllType
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
